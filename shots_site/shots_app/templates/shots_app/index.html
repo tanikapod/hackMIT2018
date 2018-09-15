@@ -1,9 +1,29 @@
-{% if latest_question_list %}
+{% if latest_games %}
     <ul>
-    {% for question in latest_question_list %}
-        <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+    {% for game in latest_games %}
+        <li><a href="/shots_app/{{ game.id }}/">{{ game.title }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
-    <p>No polls are available.</p>
+    <p>No drinking games have been made.</p>
+{% endif %}
+
+{% if most_played %}
+    <ul>
+    {% for game in most_played %}
+        <li><a href="/shots_app/{{ game.id }}/">{{ game.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No drinking games have been made.</p>
+{% endif %}
+
+{% if top_rated %}
+    <ul>
+    {% for game in top_rated %}
+        <li><a href="/shots_app/{{ game.id }}/">{{ game.title}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No drinking games have been made.</p>
 {% endif %}
