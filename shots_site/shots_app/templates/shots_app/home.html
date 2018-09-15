@@ -1,49 +1,43 @@
-{% if latest_games %}
-    <ul>
-    {% for game in latest_games %}
-        <li><a href="/shots_app/{{ game.id }}/">{{ game.title }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No drinking games have been made.</p>
-{% endif %}
-
-{% if most_played %}
-    <ul>
-    {% for game in most_played %}
-        <li><a href="/shots_app/{{ game.id }}/">{{ game.title }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No drinking games have been made.</p>
-{% endif %}
-
-{% if top_rated %}
-    <ul>
-    {% for game in top_rated %}
-        <li><a href="/shots_app/{{ game.id }}/">{{ game.title}}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No drinking games have been made.</p>
-{% endif %}
-
-
+{% load static %}
 <!DOCTYPE html>
-  <html>
-    <head>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="{% static "shots_app/css/materialize.min.css" %}" media="screen,projection"/>
+    <script type="text/javascript" src="{% static "shots_app/js/materialize.min.js" %}"></script>
+  </head>
+  <body>
+    {% if latest_games %}
+        <ul>
+        {% for game in latest_games %}
+            <li><a href="/shots/{{ game.id }}/">{{ game.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No drinking games have been made.</p>
+    {% endif %}
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
+    {% if most_played %}
+        <ul>
+        {% for game in most_played %}
+            <li><a href="/shots/{{ game.id }}/">{{ game.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No drinking games have been made.</p>
+    {% endif %}
 
-    <body>
+    {% if top_rated %}
+        <ul>
+        {% for game in top_rated %}
+            <li><a href="/shots/{{ game.id }}/">{{ game.title}}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No drinking games have been made.</p>
+    {% endif %}
 
-      <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-    </body>
-  </html>
+    <button>
+      Create your own!
+    </button>
+  </body>
+</html>

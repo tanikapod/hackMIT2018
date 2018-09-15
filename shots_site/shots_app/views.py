@@ -18,7 +18,10 @@ def home(request):
     return render(request, 'shots_app/home.html', context)
     #return HttpResponse(template.render(context, request))
 
+#def makeDrinkingGame(title, triggers):
+
 def create(request):
+
     return HttpResponse("Create Page")
 
 def play(request):
