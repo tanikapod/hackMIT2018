@@ -1,17 +1,18 @@
+import datetime
 from django.db import models
 
 class DrinkingGame(models.Model):
     title = models.CharField(max_length = 200)
     #author = models.CharField(max_length = 200)
-    pub_date = models.DateTimeField('date created')
+    pub_date = models.DateTimeField('date created', default = datetime.datetime.now())
     play_date = models.DateTimeField('date last played')
     play_count = models.IntegerField(default = 0)
     rating = models.IntegerField(default = 0,
-                                 choices = [(1, 'A anime tittie'),
-                                            (2, 'B anime titties'),
-                                            (3, 'C anime titties'),
-                                            (4, 'D anime titties'),
-                                            (5, 'DD anime titties')])
+                                 choices = [(1, 'A-cup anime titties'),
+                                            (2, 'B-cup anime titties'),
+                                            (3, 'C-cup anime titties'),
+                                            (4, 'D-cup anime titties'),
+                                            (5, 'DD-cup anime titties')])
 
     def __str__(self):
         return self.title

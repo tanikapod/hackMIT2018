@@ -2,6 +2,7 @@
     <ul>
     {% for game in latest_games %}
         <li><a href="/shots_app/{{ game.id }}/">{{ game.title }}</a></li>
+        <!-- <li><a href="{% url 'home' game.id %}">{{ game.title }}</a></li> -->
     {% endfor %}
     </ul>
 {% else %}
