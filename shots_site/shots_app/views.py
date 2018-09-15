@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import *
 
 def home(request):
     latest_games = DrinkingGame.objects.order_by('-pub_date')[:5]
@@ -11,7 +12,7 @@ def home(request):
     top_rated = DrinkingGame.objects.order_by('-rating')[:5]
     rat = '\nTop Rated:\n' + ', '.join([g.title for g in top_rated])
 
-    return HttpResponse(latest, popular, rat)
+    return HttpResponse(latest + popular + rat)
 
 def create(request):
     return HttpResponse("Create Page")
