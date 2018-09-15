@@ -14,6 +14,7 @@ class Trigger(models.Model):
     drinking_game = models.ForeignKey(DrinkingGame, on_delete = models.CASCADE)
 
     description = models.CharField(max_length = 200)
+    
     def __str__(self):
         return self.description
 
