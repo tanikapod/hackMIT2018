@@ -8,6 +8,11 @@
   </head>
 
   <body>
+
+    <form action="/shots/">
+      <input type="button" onclick = "window.location.href = /shots/" value="Home" />
+    </form>
+
     {% if triggers %}
       <h3>{{game.title}}</h3>
       <p>played {{ game.play_count }} times</p>
