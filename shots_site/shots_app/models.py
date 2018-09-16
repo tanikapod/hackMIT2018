@@ -4,7 +4,7 @@ from django.db import models
 class DrinkingGame(models.Model):
     title = models.CharField(max_length = 200)
     pub_date = models.DateTimeField('date created', default = datetime.datetime.now())
-    play_date = models.DateTimeField('date last played', default = None)
+    play_date = models.DateTimeField('date last played', null = True)
     play_count = models.IntegerField(default = 0)
     rating = models.IntegerField(default = 0,
                                  choices = [(1, 'A-cup anime titties'),
@@ -19,32 +19,19 @@ class DrinkingGame(models.Model):
     def get_by_id(id):
         return DrinkingGame.objects.get(id = id)
 
-    def get_triggers_and_actions(self):
-        triggers = Trigger.objects.filter(drinking_game = self.id)
-        triggers_with_actions = [(t, Action.objects.get(trigger = t.id)) for t in triggers]
-        return triggers_with_actions
+    def get_triggers(self):
+        return Trigger.objects.filter(drinking_game = self.id)
 
 class Trigger(models.Model):
     drinking_game = models.ForeignKey(DrinkingGame, on_delete = models.CASCADE)
 
-    description = models.CharField(max_length = 200)
+    trigger = models.CharField(max_length = 200, default = '', blank = True)
+    action = models.CharField(max_length = 200, default = '', blank = True)
+    amount = models.IntegerField(default = 1)
 
     def __str__(self):
-        return self.description
+        return 'when ' + self.trigger + ', do ' + self.action + ' ' + str(self.amount) + ' times'
 
     @staticmethod
     def get_by_id(id):
         return Trigger.objects.get(id = id)
-
-class Action(models.Model):
-    trigger = models.ForeignKey(Trigger, on_delete = models.CASCADE)
-
-    amount = models.IntegerField(default = 1)
-    description = models.CharField(max_length = 200)
-
-    def __str__(self):
-        return self.description + str(self.amount) + "times"
-
-    @staticmethod
-    def get_by_id(id):
-        return Action.objects.get(id = id)

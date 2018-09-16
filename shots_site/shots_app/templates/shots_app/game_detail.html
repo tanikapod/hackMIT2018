@@ -8,20 +8,20 @@
   </head>
 
   <body>
-    {% if triggers_with_actions %}
+    {% if triggers %}
       <h3>{{game.title}}</h3>
       <p>played {{ game.play_count }} times</p>
       <p>created: {{ game.pub_date }}</p>
       <p>last played: {{ game.play_date }}</p>
       <p>average rating: {{ game.rating }} / 5</p>
       <br>
-      {% for i in range %}
+      {% for entry in triggers %}
         <h6>Every time this happens:</h6>
-        <p>{{ triggers_with_actions[i][0].description }}</p>
+        <p>{{ entry.trigger }}</p>
         <h6>Do this:</h6>
-        <p>{{ triggers_with_actions[i][1].description }}</p>
+        <p>{{ entry.action }}</p>
         <h6>This many times:</h6>
-        <p>{{ triggers_with_actions[i][1].amount }}</p>
+        <p>{{ entry.amount }}</p>
         <br>
       {% endfor %}
     {% else %}

@@ -20,14 +20,14 @@ trigger : (action, amount)
 
 returns id of game created
 '''
-def make_drinking_game(title, triggers_and_actions_with_amounts):
+def make_drinking_game(request):
+    #title = #string
+    #triggers_and_actions_with_amounts = # dict trigger : (action, amount)
     new_game = DrinkingGame(title = title)
     new_game.save()
     for (t, (a, num)) in triggers_and_actions_with_amounts.items():
-        new_trigger = Trigger(drinking_game = new_game.id, description = t)
+        new_trigger = Trigger(drinking_game = new_game.id, trigger = t, action = a, amount = num)
         new_trigger.save()
-        new_action = Action(trigger = t.id, amount = num, description = a)
-        new_action.save()
     return new_game.id
 
 def create(request):
@@ -36,10 +36,9 @@ def create(request):
 
 def game_detail(request, game_id):
     game = DrinkingGame.get_by_id(game_id)
-    triggers_with_actions = game.get_triggers_and_actions()
+    triggers = game.get_triggers()
     context = { 'game' : game,
-                'triggers_with_actions' : triggers_with_actions,
-                'range' : range(len(triggers_with_actions))}
+                'triggers' : triggers }
     return render(request, 'shots_app/game_detail.html', context)
 
 def play(request):
