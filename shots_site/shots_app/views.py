@@ -20,7 +20,7 @@ def home(request):
 #def makeDrinkingGame(title, triggers):
 
 def create(request):
-    return HttpResponse("Create Page")
+    return render(request, 'shots_app/create.html')
 
 def game_detail(request, game_id):
     context = { 'game' : DrinkingGame.get_by_id(game_id)}
