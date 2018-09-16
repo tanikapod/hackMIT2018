@@ -23,6 +23,13 @@ returns id of game created
 def make_drinking_game(request):
     #title = #string
     #triggers_and_actions_with_amounts = # dict trigger : (action, amount)
+    title = request.POST['title']
+    trigger = request.POST['trigger']
+    action = request.POST['action']
+    amount = request.POST['action_amount']
+
+    triggers_and_actions_with_amounts = {trigger:(action,amount)}
+    
     new_game = DrinkingGame(title = title)
     new_game.save()
     for (t, (a, num)) in triggers_and_actions_with_amounts.items():
