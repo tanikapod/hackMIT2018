@@ -11,24 +11,95 @@
 
     <form action="/shots/submit/" method = "post">
       {% csrf_token %}
+      <br><br>
+      <br><br>
 
-      Title:<br>
+      <h5>Title</h5>
       <input type="text" name="title" value="Game Title">
-      <br>
       <br><br>
       <br><br>
 
+      <h5>Rule 1</h5>
       Whenever this happens:<br>
-      <input type="text" name="trigger" value="e.g. someone says potato">
+      <input type="text" name="trigger1" value="e.g. someone says potato">
       <br><br>
+      Then do this:<br>
+      <input type="text" name="action1" value="pushups">
+      <br><br>
+      This many times:<br>
+      <input type="text" name="action_amount1" value="1">
       <br><br>
 
+      <br><br>
+      <h5>Rule 2</h5>
+      Whenever this happens:<br>
+      <input type="text" name="trigger2" value="">
+      <br><br>
       Then do this:<br>
-      <input type="text" name="action" value="Pushups">
+      <input type="text" name="action2" value="">
       <br><br>
-      This many times:
-      <input type="text" name="action_amount" value="1">
+      This many times:<br>
+      <input type="text" name="action_amount2" value="1">
       <br><br>
+
+      <br><br>
+      <h5>Rule 3</h5>
+      Whenever this happens:<br>
+      <input type="text" name="trigger3" value="">
+      <br><br>
+      Then do this:<br>
+      <input type="text" name="action3" value="">
+      <br><br>
+      This many times:<br>
+      <input type="text" name="action_amount3" value="1">
+      <br><br>
+
+      <br><br>
+      <h5>Rule 4</h5>
+      Whenever this happens:<br>
+      <input type="text" name="trigger4" value="">
+      <br><br>
+      Then do this:<br>
+      <input type="text" name="action4" value="">
+      <br><br>
+      This many times:<br>
+      <input type="text" name="action_amount4" value="1">
+      <br><br>
+
+      <br><br>
+      <h5>Rule 5</h5>
+      Whenever this happens:<br>
+      <input type="text" name="trigger5" value="">
+      <br><br>
+      Then do this:<br>
+      <input type="text" name="action5" value="">
+      <br><br>
+      This many times:<br>
+      <input type="text" name="action_amount5" value="1">
+      <br><br>
+
+      <br><br>
+      <h5>Rule 6</h5>
+      Whenever this happens:<br>
+      <input type="text" name="trigger6" value="">
+      <br><br>
+      Then do this:<br>
+      <input type="text" name="action6" value="">
+      <br><br>
+      This many times:<br>
+      <input type="text" name="action_amount6" value="1">
+      <br><br>
+
+      <br><br>
+      <h5>Rule 7</h5>
+      Whenever this happens:<br>
+      <input type="text" name="trigger7" value="">
+      <br><br>
+      Then do this:<br>
+      <input type="text" name="action7" value="">
+      <br><br>
+      This many times:<br>
+      <input type="text" name="action_amount7" value="1">
 
       <input type="submit" value="Submit" />
     </form>
