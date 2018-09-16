@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="{% static "shots_app/css/materialize.min.css" %}" media="screen,projection"/>
+    <script type="text/javascript" src="{% static "shots_app/js/materialize.min.js" %}"></script>
+    <title>Browse Games</title>
+  </head>
+
+  <body>
+
+    <form action="https://matias.ma/nsfw/">
+      <input type="submit" value="Home" />
+    </form>
+
+    {% if games %}
+        {% for game in games %}
+            <h5><a href="/shots/{{ game.id }}/">{{ game.title }}</a></h5>
+            <p>played {{ game.play_count }} times</p>
+            <p>created: {{ game.pub_date }}</p>
+            <p>last played: {{ game.play_date }}</p>
+            <p>average rating: {{ game.rating }} / 5</p>
+            <br>
+        {% endfor %}
+    {% else %}
+        <p>No drinking games have been made yet. Make one yourself below!</p>
+    {% endif %}
+
+    <form action="/shots/create/">
+      <input type="submit" value="Create Your Own" />
+    </form>
+
+  </body>
+</html>

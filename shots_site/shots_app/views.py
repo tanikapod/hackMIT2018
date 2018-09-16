@@ -3,16 +3,18 @@ from django.http import HttpResponse
 from .models import *
 
 def home(request):
-    latest_games = DrinkingGame.objects.order_by('-pub_date')[:5]
-
-    most_played = DrinkingGame.objects.order_by('-play_count')[:5]
-
-    top_rated = DrinkingGame.objects.order_by('-rating')[:5]
-
-    context = { 'latest_games' : latest_games,
-                'most_played' : most_played,
-                'top_rated' : top_rated }
-    return render(request, 'shots_app/home.html', context)
+    # latest_games = DrinkingGame.objects.order_by('-pub_date')[:5]
+    #
+    # most_played = DrinkingGame.objects.order_by('-play_count')[:5]
+    #
+    # top_rated = DrinkingGame.objects.order_by('-rating')[:5]
+    #
+    # context = { 'latest_games' : latest_games,
+    #             'most_played' : most_played,
+    #             'top_rated' : top_rated }
+    # return render(request, 'shots_app/home.html', context)
+    context = { 'games' : DrinkingGame.objects.order_by('-pub_date') }
+    return render(request, 'shots_app/plain_home.html', context)
 
 '''
 triggers_and_actions_with_amounts - dictionary, maps
