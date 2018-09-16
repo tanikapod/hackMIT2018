@@ -15,6 +15,14 @@ class DrinkingGame(models.Model):
     def __str__(self):
         return self.title
 
+    @staticmethod
+    def get_by_id(id):
+        return DrinkingGame.objects.get(id = id)
+
+    def get_triggers_with_actions(self):
+        triggers = Trigger.objects.filter(drinking_game.id = self.id)
+        return {t : Action.objects.get(trigger = t.id) for t in triggers}
+
 class Trigger(models.Model):
     drinking_game = models.ForeignKey(DrinkingGame, on_delete = models.CASCADE)
 
@@ -22,6 +30,10 @@ class Trigger(models.Model):
 
     def __str__(self):
         return self.description
+
+    @staticmethod
+    def get_by_id(id):
+        return Trigger.objects.get(id = id)
 
 class Action(models.Model):
     trigger = models.ForeignKey(Trigger, on_delete = models.CASCADE)
@@ -31,3 +43,7 @@ class Action(models.Model):
 
     def __str__(self):
         return self.description + str(amount) + "times"
+
+    @staticmethod
+    def get_by_id(id):
+        return Action.objects.get(id = id)

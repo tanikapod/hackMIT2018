@@ -4,6 +4,7 @@
   <head>
     <link type="text/css" rel="stylesheet" href="{% static "shots_app/css/materialize.min.css" %}" media="screen,projection"/>
     <script type="text/javascript" src="{% static "shots_app/js/materialize.min.js" %}"></script>
+    <title>Browse Games</title>
   </head>
 
   <body>
@@ -18,7 +19,7 @@
             <br>
         {% endfor %}
     {% else %}
-        <p>No drinking games have been made.</p>
+        <p>No drinking games have been made yet. Make one yourself below!</p>
     {% endif %}
 
     {% if most_played %}
@@ -32,7 +33,7 @@
             <br>
         {% endfor %}
     {% else %}
-        <p>No drinking games have been made.</p>
+        <p>No drinking games have been made yet. Make one yourself below!</p>
     {% endif %}
 
     {% if top_rated %}
@@ -46,15 +47,12 @@
             <br>
         {% endfor %}
     {% else %}
-        <p>No drinking games have been made.</p>
+        <p>No drinking games have been made yet. Make one yourself below!</p>
     {% endif %}
-
-
 
     <form action="/shots/create/">
       <input type="submit" value="Create Your Own" />
     </form>
-
 
   </body>
 </html>

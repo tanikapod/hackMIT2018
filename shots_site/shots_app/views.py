@@ -16,15 +16,15 @@ def home(request):
                 'most_played' : most_played,
                 'top_rated' : top_rated }
     return render(request, 'shots_app/home.html', context)
-    #return HttpResponse(template.render(context, request))
 
 #def makeDrinkingGame(title, triggers):
 
 def create(request):
     return HttpResponse("Create Page")
 
-def gameDetail(request, game_id):
-    return HttpResponse("Finished Game")
+def game_detail(request, game_id):
+    context = { 'game' : DrinkingGame.get_by_id(game_id)}
+    return render(request, 'shots_app/game_detail.html', context)
 
 def play(request):
     return HttpResponse("Play Page")

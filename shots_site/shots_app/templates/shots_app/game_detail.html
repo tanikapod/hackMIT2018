@@ -4,10 +4,17 @@
   <head>
     <link type="text/css" rel="stylesheet" href="{% static "shots_app/css/materialize.min.css" %}" media="screen,projection"/>
     <script type="text/javascript" src="{% static "shots_app/js/materialize.min.js" %}"></script>
-    <title>Create Game</title>
+    <title>{{game.title}}</title>
   </head>
 
   <body>
+    {% if game.get_triggers_with_actions() %}
+      <h3>{{game.title}}</h3>
+        {% for t, a in game.get_triggers_with_actions().items() %}
 
+        {% endfor %}
+    {% else %}
+        <p>Can't find the data for this game :(</p>
+    {% endif %}
   </body>
 </html>
