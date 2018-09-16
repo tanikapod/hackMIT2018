@@ -20,7 +20,7 @@ class DrinkingGame(models.Model):
         return DrinkingGame.objects.get(id = id)
 
     def get_triggers_with_actions(self):
-        triggers = Trigger.objects.filter(drinking_game.id = self.id)
+        triggers = Trigger.objects.filter(drinking_game = self.id)
         return {t : Action.objects.get(trigger = t.id) for t in triggers}
 
 class Trigger(models.Model):

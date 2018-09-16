@@ -17,13 +17,14 @@ def home(request):
                 'top_rated' : top_rated }
     return render(request, 'shots_app/home.html', context)
 
-#def makeDrinkingGame(title, triggers):
+#def make_drinking_game(title, triggers):
 
 def create(request):
-    return render(request, 'shots_app/create.html')
+    context = { 'make_drinking_game' : make_drinking_game }
+    return render(request, 'shots_app/create.html', context)
 
 def game_detail(request, game_id):
-    context = { 'game' : DrinkingGame.get_by_id(game_id)}
+    context = { 'game' : DrinkingGame.get_by_id(game_id) }
     return render(request, 'shots_app/game_detail.html', context)
 
 def play(request):

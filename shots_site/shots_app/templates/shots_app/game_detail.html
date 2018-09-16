@@ -11,7 +11,7 @@
     {% if game.get_triggers_with_actions() %}
       <h3>{{game.title}}</h3>
         {% for t, a in game.get_triggers_with_actions().items() %}
-
+          
         {% endfor %}
     {% else %}
         <p>Can't find the data for this game :(</p>
