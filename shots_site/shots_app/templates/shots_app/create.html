@@ -8,6 +8,7 @@
   </head>
 
   <body>
+
     <form action="submit" method = "post">
       Title:<br>
       <input type="text" name="title" value="Game Title">
@@ -28,29 +29,15 @@
       <input type="text" name="action_amount" value="1">
       <br><br>
 
-      <form action = '/shots/<int:game_id>/'>
-        <input type="submit" id = "b1" value="Submit">
-        <!-- <script>
-        $(document).ready(function(){
-        $("#b1").click(function(){
-        $.ajax({
-        method: "make_drinking_game",
-        url: "/make_drinking_game/",
-        data: {"place" : value},
-        dataType: "text",
-        success: function(result){
-        var data=JSON.parse(result);
-        console.log(result);
-        }
-        });
-        });
-        </script> -->
-      </form>
+      <!-- <form action = '/shots/<int:game_id>/'>
+        <input type="submit" id = "b1" value="Submit"> -->
+
+      <!-- </form>
       <br><br><br><br><br><br>TEST<br><br>
       <form action="submit" method="post">
         <input type="text" name="info"><br>
         <input type="submit" value="Submit">
-      </form>
+      </form> -->
 
 
     </form>
