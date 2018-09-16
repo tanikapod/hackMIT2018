@@ -35,7 +35,11 @@ def create(request):
     return render(request, 'shots_app/create.html', context)
 
 def game_detail(request, game_id):
-    context = { 'game' : DrinkingGame.get_by_id(game_id) }
+    game = DrinkingGame.get_by_id(game_id)
+    triggers_with_actions = game.get_triggers_and_actions()
+    context = { 'game' : game,
+                'triggers_with_actions' : triggers_with_actions,
+                'range' : range(len(triggers_with_actions))}
     return render(request, 'shots_app/game_detail.html', context)
 
 def play(request):

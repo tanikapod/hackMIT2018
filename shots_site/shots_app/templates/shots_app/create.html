@@ -8,7 +8,7 @@
   </head>
 
   <body>
-    <form action="/action_page.php">
+    <form action="submit" method = "post">
       Title:<br>
       <input type="text" name="title" value="Game Title">
       <br>
@@ -29,13 +29,13 @@
       <br><br>
 
       <form action = '/shots/<int:game_id>/'>
-        <input type="button" id = "b1" value="Submit">
-        <script>
+        <input type="submit" id = "b1" value="Submit">
+        <!-- <script>
         $(document).ready(function(){
         $("#b1").click(function(){
         $.ajax({
-        method: "GET",
-        url: make_drinking_game,
+        method: "make_drinking_game",
+        url: "/make_drinking_game/",
         data: {"place" : value},
         dataType: "text",
         success: function(result){
@@ -44,8 +44,14 @@
         }
         });
         });
-        </script>
+        </script> -->
       </form>
+      <br><br><br><br><br><br>TEST<br><br>
+      <form action="submit" method="post">
+        <input type="text" name="info"><br>
+        <input type="submit" value="Submit">
+      </form>
+
 
     </form>
 
