@@ -23,5 +23,8 @@ def home(request):
 def create(request):
     return HttpResponse("Create Page")
 
+def gameDetail(request, game_id):
+    return HttpResponse("Finished Game")
+
 def play(request):
     return HttpResponse("Play Page")
