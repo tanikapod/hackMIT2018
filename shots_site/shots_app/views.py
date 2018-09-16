@@ -1,9 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# from django.template import loader
 from .models import *
-
-# template = loader.get_template('shots_app/index.html')
 
 def home(request):
     latest_games = DrinkingGame.objects.order_by('-pub_date')[:5]
@@ -17,7 +14,21 @@ def home(request):
                 'top_rated' : top_rated }
     return render(request, 'shots_app/home.html', context)
 
-#def make_drinking_game(title, triggers):
+'''
+triggers_and_actions_with_amounts - dictionary, maps
+trigger : (action, amount)
+
+returns id of game created
+'''
+def make_drinking_game(title, triggers_and_actions_with_amounts):
+    new_game = DrinkingGame(title = title)
+    new_game.save()
+    for (t, (a, num)) in triggers_and_actions_with_amounts.items():
+        new_trigger = Trigger(drinking_game = new_game.id, description = t)
+        new_trigger.save()
+        new_action = Action(trigger = t.id, amount = num, description = a)
+        new_action.save()
+    return new_game.id
 
 def create(request):
     context = { 'make_drinking_game' : make_drinking_game }

@@ -4,7 +4,7 @@ from django.db import models
 class DrinkingGame(models.Model):
     title = models.CharField(max_length = 200)
     pub_date = models.DateTimeField('date created', default = datetime.datetime.now())
-    play_date = models.DateTimeField('date last played')
+    play_date = models.DateTimeField('date last played', default = None)
     play_count = models.IntegerField(default = 0)
     rating = models.IntegerField(default = 0,
                                  choices = [(1, 'A-cup anime titties'),
