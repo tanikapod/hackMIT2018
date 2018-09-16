@@ -19,7 +19,7 @@
       <input type="text" name="trigger" value="Every time someone says potato">
       <br><br>
       <br><br>
-      
+
       Actions:
       What action should you do as a result?:<br>
       <input type="text" name="action" value="Pushups">
@@ -29,7 +29,22 @@
       <br><br>
 
       <form action = '/shots/<int:game_id>/'>
-        <input type="submit" value="Submit">
+        <input type="button" id = "b1" value="Submit">
+        <script>
+        $(document).ready(function(){
+        $("#b1").click(function(){
+        $.ajax({
+        method: "GET",
+        url: make_drinking_game,
+        data: {"place" : value},
+        dataType: "text",
+        success: function(result){
+        var data=JSON.parse(result);
+        console.log(result);
+        }
+        });
+        });
+        </script>
       </form>
 
     </form>
