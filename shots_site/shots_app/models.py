@@ -4,7 +4,7 @@ from django.db import models
 class DrinkingGame(models.Model):
     title = models.CharField(max_length = 200)
     pub_date = models.DateTimeField('date created', default = datetime.datetime.now())
-    play_date = models.DateTimeField('date last played', default = None)
+    play_date = models.DateTimeField('date last played', null = True)
     play_count = models.IntegerField(default = 0)
     rating = models.IntegerField(default = 0,
                                  choices = [(1, 'A-cup anime titties'),
@@ -19,14 +19,14 @@ class DrinkingGame(models.Model):
     def get_by_id(id):
         return DrinkingGame.objects.get(id = id)
 
-    def get_triggers_and_actions(self):
+    def get_triggers(self):
         return Trigger.objects.filter(drinking_game = self.id)
 
 class Trigger(models.Model):
     drinking_game = models.ForeignKey(DrinkingGame, on_delete = models.CASCADE)
 
-    trigger = models.CharField(max_length = 200)
-    action = models.CharField(max_length = 200)
+    trigger = models.CharField(max_length = 200, default = '', blank = True)
+    action = models.CharField(max_length = 200, default = '', blank = True)
     amount = models.IntegerField(default = 1)
 
     def __str__(self):
