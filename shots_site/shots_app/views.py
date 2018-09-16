@@ -26,12 +26,17 @@ def make_drinking_game(request):
                 request.POST['action'],
                 request.POST['action_amount'])]
 
-    new_game = DrinkingGame(title = title)
-    new_game.save()
+    game = DrinkingGame(title = title)
+    game.save()
+    triggers = []
     for (trigger, action, amount) in triggers:
-        new_trigger = Trigger(drinking_game = new_game, trigger = trigger, action = action, amount = amount)
+        new_trigger = Trigger(drinking_game = game, trigger = trigger, action = action, amount = amount)
+        triggers.append(new_trigger)
         new_trigger.save()
-    context = { 'new_game' : new_game}
+        print(Trigger.objects)
+    print(triggers)
+    context = { 'game' : game,
+                'triggers' : triggers}
     return render(request, 'shots_app/game_detail.html', context)
 
 def create(request):

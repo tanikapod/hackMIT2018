@@ -1,9 +1,9 @@
-import datetime
+from django.utils import timezone
 from django.db import models
 
 class DrinkingGame(models.Model):
     title = models.CharField(max_length = 200)
-    pub_date = models.DateTimeField('date created', default = datetime.datetime.now())
+    pub_date = models.DateTimeField('date created', default = timezone.now())
     play_date = models.DateTimeField('date last played', null = True)
     play_count = models.IntegerField(default = 0)
     rating = models.IntegerField(default = 0,
