@@ -21,7 +21,7 @@ def home(request):
 #def makeDrinkingGame(title, triggers):
 
 def create(request):
-    return HttpResponse("Create Page")
+    return render(request, 'shots_app/create.html')
 
 def gameDetail(request, game_id):
     return HttpResponse("Finished Game")
