@@ -11,23 +11,22 @@
 
     <form action="/shots/submit/" method = "post">
       {% csrf_token %}
-      
+
       Title:<br>
       <input type="text" name="title" value="Game Title">
       <br>
       <br><br>
       <br><br>
 
-      Triggers (What should trigger the action?):<br>
-      <input type="text" name="trigger" value="Every time someone says potato">
+      Whenever this happens:<br>
+      <input type="text" name="trigger" value="e.g. someone says potato">
       <br><br>
       <br><br>
 
-      Actions:
-      What action should you do as a result?:<br>
+      Then do this:<br>
       <input type="text" name="action" value="Pushups">
       <br><br>
-      How many of those should you do each time?
+      This many times:
       <input type="text" name="action_amount" value="1">
       <br><br>
 

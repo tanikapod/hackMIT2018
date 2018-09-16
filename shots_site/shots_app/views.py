@@ -22,19 +22,17 @@ returns id of game created
 '''
 def make_drinking_game(request):
     title = request.POST['title']
-    triggers = [(request.POST['trigger'],
+    entries = [(request.POST['trigger'],
                 request.POST['action'],
                 request.POST['action_amount'])]
 
     game = DrinkingGame(title = title)
     game.save()
     triggers = []
-    for (trigger, action, amount) in triggers:
+    for (trigger, action, amount) in entries:
         new_trigger = Trigger(drinking_game = game, trigger = trigger, action = action, amount = amount)
         triggers.append(new_trigger)
         new_trigger.save()
-        print(Trigger.objects)
-    print(triggers)
     context = { 'game' : game,
                 'triggers' : triggers}
     return render(request, 'shots_app/game_detail.html', context)
