@@ -9,7 +9,9 @@
 
   <body>
 
-    <form action="submit" method = "post">
+    <form action="/shots/submit/" method = "post">
+      {% csrf_token %}
+      
       Title:<br>
       <input type="text" name="title" value="Game Title">
       <br>
@@ -29,27 +31,7 @@
       <input type="text" name="action_amount" value="1">
       <br><br>
 
-
-      <input type="submit" id = "b1" value="Submit">
-      
-      <!-- <form action = '/shots/<int:game_id>/'>
-        <input type="submit" id = "b1" value="Submit"> -->
-
-      <!-- </form>
-      <br><br><br><br><br><br>TEST<br><br>
-      <form action="submit" method="post">
-        <input type="text" name="info"><br>
-        <input type="submit" value="Submit">
-      </form> -->
-
-
+      <input type="submit" value="Submit" />
     </form>
-
   </body>
 </html>
-
-<!-- tite, triggers+actions corresponding to triggers -->
-
-<!-- actions should have amount and description -->
-
-<!-- triggers should only have a description -->
