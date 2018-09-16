@@ -33,8 +33,7 @@ def make_drinking_game(request):
         new_trigger = Trigger(drinking_game = game, trigger = trigger, action = action, amount = amount)
         triggers.append(new_trigger)
         new_trigger.save()
-        print(Trigger.objects)
-    print(triggers)
+        
     context = { 'game' : game,
                 'triggers' : triggers}
     return render(request, 'shots_app/game_detail.html', context)
