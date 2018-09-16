@@ -5,39 +5,49 @@
     <link type="text/css" rel="stylesheet" href="{% static "shots_app/css/materialize.min.css" %}" media="screen,projection"/>
     <script type="text/javascript" src="{% static "shots_app/js/materialize.min.js" %}"></script>
   </head>
+
   <body>
     {% if latest_games %}
-        <ul>
+      <h3>Recently Created Games:</h3>
         {% for game in latest_games %}
-            <li><a href="/shots/{{ game.id }}/">{{ game.title }}</a></li>
+            <p><a href="/shots/{{ game.id }}/">{{ game.title }}</a></p>
+            <p>played {{ game.play_count }} times</p>
+            <p>created: {{ game.pub_date }}</p>
+            <p>last played: {{ game.play_date }}</p>
+            <p>average rating: {{ game.rating }} / 5</p>
         {% endfor %}
-        </ul>
     {% else %}
         <p>No drinking games have been made.</p>
     {% endif %}
 
     {% if most_played %}
-        <ul>
+      <h3>Most Popular Games:</h3>
         {% for game in most_played %}
-            <li><a href="/shots/{{ game.id }}/">{{ game.title }}</a></li>
+            <p><a href="/shots/{{ game.id }}/">{{ game.title }}</a></p>
+            <p>played {{ game.play_count }} times</p>
+            <p>created: {{ game.pub_date }}</p>
+            <p>last played: {{ game.play_date }}</p>
+            <p>average rating: {{ game.rating }} / 5</p>
         {% endfor %}
-        </ul>
     {% else %}
         <p>No drinking games have been made.</p>
     {% endif %}
 
     {% if top_rated %}
-        <ul>
+      <h3>Top Rated Games:</h3>
         {% for game in top_rated %}
-            <li><a href="/shots/{{ game.id }}/">{{ game.title}}</a></li>
+            <p><a href="/shots/{{ game.id }}/">{{ game.title }}</a></p>
+            <p>played {{ game.play_count }} times</p>
+            <p>created: {{ game.pub_date }}</p>
+            <p>last played: {{ game.play_date }}</p>
+            <p>average rating: {{ game.rating }} / 5</p>
         {% endfor %}
-        </ul>
     {% else %}
         <p>No drinking games have been made.</p>
     {% endif %}
 
     <button>
-      Create your own!
+      <a href="/shots/create/">Create your own!</a>
     </button>
   </body>
 </html>

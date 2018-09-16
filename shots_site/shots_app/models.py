@@ -3,7 +3,6 @@ from django.db import models
 
 class DrinkingGame(models.Model):
     title = models.CharField(max_length = 200)
-    #author = models.CharField(max_length = 200)
     pub_date = models.DateTimeField('date created', default = datetime.datetime.now())
     play_date = models.DateTimeField('date last played')
     play_count = models.IntegerField(default = 0)
@@ -13,7 +12,6 @@ class DrinkingGame(models.Model):
                                             (3, 'C-cup anime titties'),
                                             (4, 'D-cup anime titties'),
                                             (5, 'DD-cup anime titties')])
-
     def __str__(self):
         return self.title
 
