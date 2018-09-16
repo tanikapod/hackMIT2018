@@ -20,14 +20,14 @@ trigger : (action, amount)
 
 returns id of game created
 '''
-def make_drinking_game(title, triggers_and_actions_with_amounts):
+def make_drinking_game(request):
+    #title = #string
+    #triggers_and_actions_with_amounts = # dict trigger : (action, amount)
     new_game = DrinkingGame(title = title)
     new_game.save()
     for (t, (a, num)) in triggers_and_actions_with_amounts.items():
-        new_trigger = Trigger(drinking_game = new_game.id, description = t)
+        new_trigger = Trigger(drinking_game = new_game.id, trigger = t, action = a, amount = num)
         new_trigger.save()
-        new_action = Action(trigger = t.id, amount = num, description = a)
-        new_action.save()
     return new_game.id
 
 def create(request):
