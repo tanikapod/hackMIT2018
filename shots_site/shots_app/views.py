@@ -21,7 +21,6 @@ def home(request):
 #def makeDrinkingGame(title, triggers):
 
 def create(request):
-
     return HttpResponse("Create Page")
 
 def play(request):

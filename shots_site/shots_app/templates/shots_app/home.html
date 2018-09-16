@@ -10,11 +10,12 @@
     {% if latest_games %}
       <h3>Recently Created Games:</h3>
         {% for game in latest_games %}
-            <p><a href="/shots/{{ game.id }}/">{{ game.title }}</a></p>
+            <h5><a href="/shots/{{ game.id }}/">{{ game.title }}</a></h5>
             <p>played {{ game.play_count }} times</p>
             <p>created: {{ game.pub_date }}</p>
             <p>last played: {{ game.play_date }}</p>
             <p>average rating: {{ game.rating }} / 5</p>
+            <br>
         {% endfor %}
     {% else %}
         <p>No drinking games have been made.</p>
@@ -23,11 +24,12 @@
     {% if most_played %}
       <h3>Most Popular Games:</h3>
         {% for game in most_played %}
-            <p><a href="/shots/{{ game.id }}/">{{ game.title }}</a></p>
+            <h5><a href="/shots/{{ game.id }}/">{{ game.title }}</a></h5>
             <p>played {{ game.play_count }} times</p>
             <p>created: {{ game.pub_date }}</p>
             <p>last played: {{ game.play_date }}</p>
             <p>average rating: {{ game.rating }} / 5</p>
+            <br>
         {% endfor %}
     {% else %}
         <p>No drinking games have been made.</p>
@@ -36,11 +38,12 @@
     {% if top_rated %}
       <h3>Top Rated Games:</h3>
         {% for game in top_rated %}
-            <p><a href="/shots/{{ game.id }}/">{{ game.title }}</a></p>
+            <h5><a href="/shots/{{ game.id }}/">{{ game.title }}</a></h5>
             <p>played {{ game.play_count }} times</p>
             <p>created: {{ game.pub_date }}</p>
             <p>last played: {{ game.play_date }}</p>
             <p>average rating: {{ game.rating }} / 5</p>
+            <br>
         {% endfor %}
     {% else %}
         <p>No drinking games have been made.</p>
