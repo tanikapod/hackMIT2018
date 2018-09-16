@@ -9,6 +9,10 @@
 
   <body>
 
+    <form action="/shots/">
+      <input type="button" onclick = "window.location.href = /shots/" value="Home" />
+    </form>
+
     <form action="/shots/submit/" method = "post">
       {% csrf_token %}
       <br><br>
