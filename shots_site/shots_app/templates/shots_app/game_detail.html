@@ -8,14 +8,14 @@
   </head>
 
   <body>
-
+    <center>
     <form action="/shots/">
       <input type="button" onclick = "window.location.href = /shots/" value="Home" />
     </form>
 
     {% if triggers %}
       <h3>{{game.title}}</h3>
-      <p>played {{ game.play_count }} times</p>
+      <p>PLAYED {{ game.play_count }} TIMES</p>
       <p>created: {{ game.pub_date }}</p>
       <p>last played: {{ game.play_date }}</p>
       <p>average rating: {{ game.rating }} / 5</p>
@@ -32,5 +32,6 @@
     {% else %}
         <p>Can't find the data for this game :(</p>
     {% endif %}
+    </center>
   </body>
 </html>

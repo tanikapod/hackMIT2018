@@ -4,5 +4,12 @@
   <head>
     <link type="text/css" rel="stylesheet" href="{% static "shots_app/css/materialize.min.css" %}" media="screen,projection"/>
     <script type="text/javascript" src="{% static "shots_app/js/materialize.min.js" %}"></script>
+    {% block title %}
+    <title>Shots</title>
+    {% endblock %}
+    <style>
+    .header { padding: 24px 0 0 0; margin: 0; }
+    .page-height { height: 100vh; }
+    </style>
   </head>
 </html>
